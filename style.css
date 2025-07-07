@@ -1,0 +1,244 @@
+/* Importing Google Fonts for a modern and clean design */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@400;700&display=swap');
+
+:root {
+    --bg-color: #f8f3e1;           /* Light cream-yellow background */
+    --text-color: #2a2a2a;         /* Darker gray text for readability */
+    --header-bg: #f1e0a1;          /* Soft, warm yellow header */
+    --accent-color: #e1b700;       /* Deep golden yellow for buttons and highlights */
+    --accent-muted: #f4e1a1;       /* Muted light yellow for soft backgrounds */
+    --font-body: 'Roboto', sans-serif;  /* Font for body text */
+    --font-header: 'Playfair Display', serif;  /* Elegant serif font for headers */
+}
+
+body.dark {
+    --bg-color: #2b2b2b;           /* Dark background with a warm undertone */
+    --text-color: #f0e1a1;         /* Soft light yellow text */
+    --header-bg: #6e4a1f;          /* Rich golden-brown header */
+    --accent-color: #e1b700;       /* Deep golden yellow for buttons and highlights */
+    --accent-muted: #5d4a1f;       /* Muted brownish yellow for softer backgrounds */
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-body);  /* Default body font */
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+    line-height: 1.6;
+    animation: fadeIn 1.5s ease-out; /* Slower fade-in animation for body */
+}
+
+header {
+    background-color: var(--header-bg);
+    padding: 1.5rem;
+    position: static;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid var(--accent-muted);
+    font-family: var(--font-header);  /* Serif font for header */
+    font-weight: 700;  /* Bold font weight for header */
+    font-size: 1.75rem;  /* Larger header text */
+    animation: slideIn 1s ease-out; /* Slower slide-in animation for header */
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadeIn 2s ease-out;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    padding: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;  /* Medium weight for nav links */
+    font-size: 1.1rem;
+    transition: color 0.3s, transform 0.3s, letter-spacing 0.3s; /* Added letter-spacing animation */
+}
+
+nav a:hover {
+    color: var(--accent-color);
+    transform: scale(1.1); /* Zoom in on hover */
+    letter-spacing: 1px; /* Slight space between letters on hover */
+}
+
+section {
+    padding: 3rem;
+    max-width: 1000px;
+    margin: auto;
+    font-size: 1.125rem;
+    animation: fadeInUp 2s ease-out; /* Slower fade-in-up animation for sections */
+}
+
+.project {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    background-color: var(--accent-muted);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 2s ease-out;
+    align-items: center;
+    justify-content: center;
+}
+
+.project img {
+    width: 330px;
+    height: 330px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.project img:hover {
+    transform: scale(1.1);  /* Zoom effect on hover */
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.skills li {
+    background: var(--accent-muted);
+    color: #333;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    font-size: 1rem;
+    animation: fadeIn 2s ease-out;
+}
+
+/* Profile Image */
+.profile-image {
+    width: 100px;  /* Slightly larger size for the profile image */
+    height: 100px;
+    object-fit: banner;
+    border-radius: 50%;
+    margin: 1rem auto;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    animation: popIn 1.5s ease-out, rotateIn 2s ease-out;
+}
+
+.profile-image:hover {
+    transform: rotate(360deg) scale(1.2);  /* Rotate and zoom effect on hover */
+    opacity: 0.8;  /* Slight opacity change on hover */
+}
+
+/* Animations */
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Fade In Up Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Slide In Animation for Header */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Pop In Animation for Profile Image */
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0.6);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Rotate In Animation for Profile Image */
+@keyframes rotateIn {
+    from {
+        opacity: 0;
+        transform: rotate(-180deg);
+    }
+    to {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+}
+
+/* Pop Effect on Buttons */
+form button {
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s, transform 0.3s; /* Adding transition for the pop effect */
+    animation: popEffect 2s ease-out;
+}
+
+form button:hover {
+    background-color: #b78d00;  /* Slightly darker yellow on hover */
+    transform: scale(1.1);  /* Slight pop effect */
+}
+
+/* Button Pop Animation */
+@keyframes popEffect {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: var(--header-bg);
+    color: var(--text-color);
+    font-family: var(--font-header);
+    font-size: 1.1rem;
+    font-weight: 400;
+}
